@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const getAllArticles = (pageNum) => {
+const getAllArticles = (pageNum, query) => {
     const response = axios.get('/api/articles', {
         params: {
-            currentPage: pageNum
+            currentPage: pageNum,
+            q: query
         }
     });
     return response;

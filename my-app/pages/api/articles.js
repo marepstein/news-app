@@ -2,14 +2,18 @@ import api from '../../services/api';
 
 export default async (req, res) => {
     const { method } = req;
+    console.log(req);
 
     switch (method) {
         case 'GET':
             try {
                 const currentPage = req.query.currentPage;
+                const query = req.query.q;
+
                 const { data } = await api.get('api/articles', {
                     params: {
-                        currentPage: currentPage
+                        currentPage: currentPage,
+                        q: query
                     }
                 });
                 res.json(data);

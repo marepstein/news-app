@@ -30,20 +30,29 @@ export default function Home() {
     const [error, setError] = useState();
     const [loading, setLoading] = useState();
     const [page, setPage] = useState(1);
+    const [filter, setFilter] = useState('uk');
+
+    const handleChange = (searchValue) => {
+        // if (!searchValue || searchValue.length === 0) {
+        //     setFilter('uk');
+        // }
+        setFilter(searchValue);
+        console.log(searchValue.length);
+    };
 
     useEffect(() => {
         setLoading(true);
-        getAllArticles(page)
+        getAllArticles(page, filter)
             .then((response) => {
                 setArticles(response.data.articles);
                 setLoading(false);
             })
             .catch((error) => setError(error.message));
-    }, [page]);
+    }, [page, filter]);
 
     return (
         <>
-            <SearchBar />
+            <SearchBar onChange={handleChange} />
             <ContentWrapper>
                 <ArticleCard articles={articles} />
                 <Button
