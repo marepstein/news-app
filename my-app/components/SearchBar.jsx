@@ -46,6 +46,7 @@ const SearchBar = (props) => {
             <Input
                 icon="search"
                 placeholder="Search your own keywords..."
+                name="search"
                 onChange={handleChange}
             />
             {/* <button type="submit">Search</button> */}

@@ -24,7 +24,11 @@ const FilterLink = styled.div`
     text-transform: uppercase;
     cursor: pointer;
     transition: 0.25s border-bottom ease-in-out;
-    border-bottom: solid 1px ${(p) => p.theme.colors.primaryWhite};
+    border-bottom: solid 2px
+        ${(p) =>
+            p.active
+                ? p.theme.colors.primaryBlack
+                : p.theme.colors.primaryWhite};
 
     &:hover {
         border-bottom: solid 1px ${(p) => p.theme.colors.primaryDarkGrey};
@@ -51,10 +55,9 @@ const FilterBar = (props) => {
         'tech'
     ];
 
-    const handleClick = (event) => {
-        // props.onClick(console.log(event.target.innerText));
+    const handleClick = (event, index) => {
         props.onClick(event.target.innerText);
-        // props.onClick(setActiveIndex(index));
+        setActiveIndex(index);
     };
 
     return (
@@ -63,7 +66,7 @@ const FilterBar = (props) => {
                 return (
                     <FilterLink
                         value={filter}
-                        onClick={handleClick}
+                        onClick={(event) => handleClick(event, index)}
                         key={index}
                         className={
                             activeIndex === index ? 'active' : 'inactive'

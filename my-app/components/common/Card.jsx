@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
-import LazyLoad from 'react-lazyload';
 import Moment from 'react-moment';
 
 import { media } from '../../styles/mediaQueries';
