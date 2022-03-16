@@ -1,18 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
+import LazyLoad from 'react-lazyload';
+import Moment from 'react-moment';
+
 import { media } from '../../styles/mediaQueries';
 
-const Card = styled.div`
+const Card = styled.article`
+    flex: 1 1 30%;
     max-width: 26rem;
     margin: 1rem;
-    flex-basis: 45%;
-    padding: 1rem 0 1rem 1rem;
     text-align: left;
     color: inherit;
     text-decoration: none;
-    border: 1px solid #eaeaea;
+    border: 1px solid ${(p) => p.theme.colors.primaryLighterGrey};
     transition: 0.25s transform ease-in-out, 0.25s border-color ease,
         0.25s box-shadow ease;
+    cursor: pointer;
 
     &:hover {
         box-shadow: 0 0 10px 1px hsl(0deg 0% 0% / 10%);
@@ -20,48 +23,72 @@ const Card = styled.div`
 `;
 
 const Image = styled.img`
-    max-width: 100%;
-    max-height: 100%;
+    min-width: 100%;
+    max-height: 13.15rem;
+    height: 13.15rem;
+    width: 12.5rem;
 `;
 
 const CardInfo = styled.div`
     padding: 1rem;
-    background-color: ${(p) => p.theme.colors.primaryBlack};
-    color: ${(p) => p.theme.colors.primaryWhite};
+    color: ${(p) => p.theme.colors.primaryBlack};
 `;
 
-const Title = styled.h1`
-    font-size: 14px;
+const DatePublished = styled(Moment)`
+    font-size: 0.75rem;
+`;
+
+const Title = styled.h2`
+    font-size: 0.875rem;
 
     ${media.tablet`
-        font-size: 16px;
+        font-size: 1rem;
+
+        &:hover {
+            text-decoration: underline;
+        }
     `}
 `;
 
-const Subtitle = styled.h2`
-    font-size: 14px;
+const Subtitle = styled.p`
+    font-size: 0.75rem;
+    font-weight: 400;
 `;
 
+const Source = styled.p`
+    font-size: 0.75rem;
+`;
 const ArticleLink = styled.a`
     font-weight: 400;
 `;
 
-const ArticleCard = ({ articles }) => {
-    console.log('hi', articles);
+const ArticleCard = ({ articles, loading }) => {
+    console.log('loading', loading);
 
     return (
         <>
-            {articles?.map((article) => {
+            {articles?.map((article, key) => {
                 return (
-                    <Card>
-                        <Image src={article.urlToImage} />
-                        <CardInfo>
-                            <Title>{article.title}</Title>
-                            <Subtitle>{article.description}</Subtitle>
-                            <ArticleLink href={article.url}>
-                                Read now
-                            </ArticleLink>
-                        </CardInfo>
+                    <Card key={key}>
+                        <ArticleLink
+                            href={article.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Image src={article.urlToImage} loading="lazy" />
+                            <CardInfo>
+                                <DatePublished format="ddd DD MMMM YYYY">
+                                    {article.publishedAt}
+                                </DatePublished>
+                                <Title>{article.title}</Title>
+                                <Subtitle>{article.description}</Subtitle>
+                                {article.source.name && (
+                                    <Source>
+                                        Source: {article.source.name}
+                                    </Source>
+                                )}
+                            </CardInfo>
+                        </ArticleLink>
                     </Card>
                 );
             })}

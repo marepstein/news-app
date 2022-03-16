@@ -1,11 +1,15 @@
 import styled from 'styled-components';
+import { theme } from '../../styles/theme';
 
 const StyledButton = styled.button`
-    height: 3rem;
-    width: 10rem;
-    border: solid 2px black;
+    color: ${(p) =>
+        p.disabled
+            ? p.theme.colors.primaryLightGrey
+            : p.theme.colors.primaryBlack};
     background: inherit;
-    font-size: 1rem;
+    margin: 0.5rem 0;
+    text-decoration: underline;
+    border: none;
 `;
 
 const Button = ({ children, onClick, disabled }) => {

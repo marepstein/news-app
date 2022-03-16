@@ -5,12 +5,12 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 800px;
+    max-width: 50rem;
     margin-top: 3rem;
-`
+`;
 
 const Grid = () => {
-    return <Container></Container>
-}
+    return <Container></Container>;
+};
 
 export default Grid;

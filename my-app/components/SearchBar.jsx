@@ -1,8 +1,24 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { media } from '../styles/mediaQueries';
+
+const Form = styled.form`
+    text-align: center;
+    margin: 1rem 0;
+    width: 100%;
+
+    ${media.tablet`
+        width: 35%
+    `}
+`;
 
 const Input = styled.input`
-    width: 50%;
+    height: 2rem;
+    padding-left: 0.5rem;
+    width: 100%;
+    border-radius: 0%;
+    box-shadow: none;
+    border: solid 1px ${(p) => p.theme.colors.borderGrey};
 `;
 
 const ScreenReaderTitle = styled.span`
@@ -16,19 +32,12 @@ const ScreenReaderTitle = styled.span`
 `;
 
 const SearchBar = (props) => {
-    const [searchInput, setSearchInput] = useState();
-
-    const searchItems = (searchValue) => {
-        setSearchInput(searchValue);
-        console.log(searchValue);
-    };
-
     const handleChange = (event) => {
         props.onChange(event.target.value);
     };
 
     return (
-        <form action="/" method="get">
+        <Form action="/" method="get">
             <label htmlFor="header-search">
                 <ScreenReaderTitle className="visually-hidden">
                     Search articles
@@ -36,11 +45,11 @@ const SearchBar = (props) => {
             </label>
             <Input
                 icon="search"
-                placeholder="Search..."
+                placeholder="Search your own keywords..."
                 onChange={handleChange}
             />
-            <button type="submit">Search</button>
-        </form>
+            {/* <button type="submit">Search</button> */}
+        </Form>
     );
 };
 

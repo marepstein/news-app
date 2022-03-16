@@ -1,34 +1,46 @@
-
-import Link from 'next/link';
-import styled from "styled-components";
-import Burger from './burgerMenu';
+import styled from 'styled-components';
+import { media } from '../../styles/mediaQueries';
+import SearchBar from '../SearchBar';
 
 const Nav = styled.nav`
-  background-color: ${p => p.theme.colors.primaryWhite};
-  width: 100%;
-  // border-bottom: 2px solid #f1f1f1;
-  box-shadow: 0 4px 2px -2px #bababa;
-  padding: 2rem 1rem;
-  display: flex;
-  z-index: 1;
+    max-width: 85rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: ${(p) => p.theme.colors.primaryWhite};
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    z-index: 1;
+
+    ${media.tablet`
+        flex-direction: row;
+    `}
 `;
 
-const MenuLink = styled(Link)`
-  color: ${p => p.theme.colors.black};
-  padding: 1rem 2rem;
-  font-weight: ${p => p.theme.h1.fontWeight};
-  font-size: ${p => p.theme.h1.size};
-  text-decoration: none;
+const Logo = styled.a`
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+
+    ${media.mobileModern`
+        font-size: 2.5rem;
+    `}
+
+    ${media.mobileLarge`
+        font-size: 3rem;
+    `}
 `;
 
-const Menu = () => {
+const Menu = ({ handleChange }) => {
     return (
         <Nav>
-            <MenuLink href="/">Home</MenuLink>
-            <MenuLink href="/all-news">All News</MenuLink>
-            <Burger />
+            <Logo>THE BIG NEWS</Logo>
+            <SearchBar onChange={handleChange} />
         </Nav>
-    )
-}
+    );
+};
 
 export default Menu;
