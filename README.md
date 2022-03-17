@@ -75,6 +75,16 @@ Filtering of articles was carried out on the backend through use of query params
 
 Organised into common components (e.g. buttons, article cards, loading spinner etc), layout components, nav and other page features.
 
+## Testing
+
+cd my-app
+npm run cypress
+(make sure app server is running)
+
+cd api
+npm test
+(make sure api server is not running)
+
 ## Future improvements & bugs
 
 -   Add filter bar into nav component
