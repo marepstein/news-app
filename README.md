@@ -15,7 +15,7 @@ create .env file containing:
 ```
 NODE_ENV=development
 NEXT_PUBLIC_API_HOST=http://localhost:3080
- NEXT_PORT=3000
+NEXT_PORT=3000
 ```
 
 cd my-app
