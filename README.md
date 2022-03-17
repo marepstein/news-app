@@ -11,7 +11,12 @@ First, run the development server:
 **Frontend:**
 
 create .env file containing:
-`NODE_ENV=development NEXT_PUBLIC_API_HOST=http://localhost:3080 NEXT_PORT=3000`
+
+```
+NODE_ENV=development
+NEXT_PUBLIC_API_HOST=http://localhost:3080
+ NEXT_PORT=3000
+```
 
 cd my-app
 
@@ -22,7 +27,13 @@ npm run dev
 **Backend:**
 
 create .env file containing:
-`NODE_ENV=development EXPRESS_PORT=3080 NEXT_PORT=3000 API_KEY=e62fa276eafa4b14a6941c9f0f154dcd`
+
+```
+NODE_ENV=development
+EXPRESS_PORT=3080
+NEXT_PORT=3000
+API_KEY=******
+```
 
 cd api
 
