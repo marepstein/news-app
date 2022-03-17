@@ -1,6 +1,9 @@
-context('Home', () => {
-    it('should load our app and show content based on input', () => {
+describe('Home page', () => {
+    beforeEach(() => {
         cy.visit('http://localhost:3000');
+    });
+
+    it('should load our app and show content based on input', () => {
         cy.get('nav').contains('a');
         cy.get('form');
         cy.get('input[name=search]').type('Beauty');
@@ -16,7 +19,6 @@ context('Home', () => {
     });
 
     it('should load our app and show content based on clicked filter', () => {
-        cy.visit('http://localhost:3000');
         cy.get('main div').eq(4).click();
         cy.server();
         cy.route({

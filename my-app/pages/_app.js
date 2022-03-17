@@ -5,7 +5,6 @@ import '../styles/globals.css';
 
 import getAllArticles from '../services/getArticles';
 import Menu from '../components/nav/menu';
-import LoadingProvider from '../services/loadingProvider';
 
 function MyApp({ Component, pageProps }) {
     const [articles, setArticles] = useState();

@@ -1,10 +1,20 @@
 import styled from 'styled-components';
+import { media } from '../../styles/mediaQueries';
 
 const StyledSpinner = styled.svg`
     animation: rotate 2s linear infinite;
-    margin: -25px 0 0 -25px;
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
+    margin-top: 10rem;
+    border-top: 4px solid ${(p) => p.theme.colors.primaryLighterGrey};
+    border-right: 4px solid ${(p) => p.theme.colors.primaryLighterGrey};
+    border-bottom: 4px solid ${(p) => p.theme.colors.primaryLighterGrey};
+    border-left: 4px solid ${(p) => p.theme.colors.primaryBlack};
+    border-radius: 50%;
+
+    ${media.tablet`
+        margin-top: 20rem;
+    `}
 
     & .path {
         stroke: #5652bf;

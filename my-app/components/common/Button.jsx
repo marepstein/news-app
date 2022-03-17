@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from '../../styles/theme';
 
 const StyledButton = styled.button`
     color: ${(p) =>

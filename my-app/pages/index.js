@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import { media } from '../styles/mediaQueries';
 
-import { useState, useEffect, useContext } from 'react';
-
-import getAllArticles from '../services/getArticles';
-import LoadingContext from '../services/loadingContext';
-
-import SearchBar from '../components/SearchBar';
 import ArticleCard from '../components/common/Card';
 import Button from '../components/common/Button';
 import FilterBar from '../components/FilterBar';
@@ -16,8 +10,6 @@ import AppContainer from '../components/layout/Layout';
 const ContentWrapper = styled.div`
     margin: 2rem auto;
     display: flex;
-    // grid-template-columns: 25% 25% 25%;
-    // grid-gap: 1em 1em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -27,12 +19,7 @@ const ContentWrapper = styled.div`
         flex-direction: row;
         flex-wrap: wrap;
         align-items: stretch;
-    // grid-template-columns: repeat(3, 1fr);
-  `}; // > :nth-child(4n) {
-    //     grid-column: auto / span 4;
-    //     grid-row: auto / span 4;
-    //     height: 200px;
-    // }
+  `};
 `;
 
 const Container = styled.div`
@@ -78,8 +65,6 @@ export default function Home({
 }) {
     const handleClick = (clickedLink) => {
         setFilter(clickedLink);
-        console.log(clickedLink);
-        // console.log(e);
     };
 
     return (

@@ -24,14 +24,14 @@ const FilterLink = styled.div`
     text-transform: uppercase;
     cursor: pointer;
     transition: 0.25s border-bottom ease-in-out;
-    border-bottom: solid 2px
-        ${(p) =>
-            p.active
-                ? p.theme.colors.primaryBlack
-                : p.theme.colors.primaryWhite};
+    border-bottom: solid 2px ${(p) => p.theme.colors.primaryWhite};
 
     &:hover {
         border-bottom: solid 1px ${(p) => p.theme.colors.primaryDarkGrey};
+    }
+
+    &.active {
+        border-bottom: solid 2px ${(p) => p.theme.colors.primaryBlack};
     }
 
     ${media.tablet`

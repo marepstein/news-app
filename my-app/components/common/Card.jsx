@@ -1,8 +1,8 @@
-import { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
 import Moment from 'react-moment';
 
 import { media } from '../../styles/mediaQueries';
+import Title from './Title';
 
 const Card = styled.article`
     flex: 1 1 30%;
@@ -37,17 +37,17 @@ const DatePublished = styled(Moment)`
     font-size: 0.75rem;
 `;
 
-const Title = styled.h2`
-    font-size: 0.875rem;
+// const Title = styled.h2`
+//     font-size: 0.875rem;
 
-    ${media.tablet`
-        font-size: 1rem;
+//     ${media.tablet`
+//         font-size: 1rem;
 
-        &:hover {
-            text-decoration: underline;
-        }
-    `}
-`;
+//         &:hover {
+//             text-decoration: underline;
+//         }
+//     `}
+// `;
 
 const Subtitle = styled.p`
     font-size: 0.75rem;
@@ -61,9 +61,7 @@ const ArticleLink = styled.a`
     font-weight: 400;
 `;
 
-const ArticleCard = ({ articles, loading }) => {
-    console.log('loading', loading);
-
+const ArticleCard = ({ articles }) => {
     return (
         <>
             {articles?.map((article, key) => {

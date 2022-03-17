@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { media } from '../styles/mediaQueries';
 
@@ -49,7 +48,6 @@ const SearchBar = (props) => {
                 name="search"
                 onChange={handleChange}
             />
-            {/* <button type="submit">Search</button> */}
         </Form>
     );
 };
