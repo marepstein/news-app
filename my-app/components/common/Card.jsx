@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Moment from 'react-moment';
 
-import { media } from '../../styles/mediaQueries';
 import Title from './Title';
 
 const Card = styled.article`
@@ -36,18 +35,6 @@ const CardInfo = styled.div`
 const DatePublished = styled(Moment)`
     font-size: 0.75rem;
 `;
-
-// const Title = styled.h2`
-//     font-size: 0.875rem;
-
-//     ${media.tablet`
-//         font-size: 1rem;
-
-//         &:hover {
-//             text-decoration: underline;
-//         }
-//     `}
-// `;
 
 const Subtitle = styled.p`
     font-size: 0.75rem;
