@@ -3,7 +3,6 @@ import express from 'express';
 import pkg from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
-import axios from 'axios';
 
 const { json } = pkg;
 const app = express();
@@ -20,3 +19,5 @@ app.use(ArticleRouter);
 app.listen(port, () => {
     console.log(`Server listening on the port::${port}`);
 });
+
+export default app;
