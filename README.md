@@ -10,7 +10,7 @@ First, run the development server:
 
 **Frontend:**
 
-create .env file containing:
+create .env file in the 'my-app' directory containing:
 
 ```
 NODE_ENV=development
@@ -26,7 +26,7 @@ npm run dev
 
 **Backend:**
 
-create .env file containing:
+create .env file in the 'api' directory containing:
 
 ```
 NODE_ENV=development
