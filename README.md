@@ -14,7 +14,9 @@ create .env file containing:
 `NODE_ENV=development NEXT_PUBLIC_API_HOST=http://localhost:3080 NEXT_PORT=3000`
 
 cd my-app
+
 npm i/npm install
+
 npm run dev
 
 **Backend:**
@@ -23,7 +25,9 @@ create .env file containing:
 `NODE_ENV=development EXPRESS_PORT=3080 NEXT_PORT=3000 API_KEY=e62fa276eafa4b14a6941c9f0f154dcd`
 
 cd api
+
 npm i/npm install
+
 npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -68,4 +72,3 @@ Organised into common components (e.g. buttons, article cards, loading spinner e
 -   Create individual article pages
 -   Move code in index.js into component e.g. <Home /> and useContext hook as the app grows to avoid prop drilling
 -   Article refresh every few hours
-
