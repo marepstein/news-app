@@ -82,4 +82,5 @@ Organised into common components (e.g. buttons, article cards, loading spinner e
 -   Fix bug: when a search input is added, need to remove active class from the filter links and when input is removed, add active class back to default filter link
 -   Create individual article pages
 -   Move code in index.js into component e.g. <Home /> and useContext hook as the app grows to avoid prop drilling
--   Article refresh every few hours
+-   Article refresh every few minutes
+-   Show articles in chronological order
